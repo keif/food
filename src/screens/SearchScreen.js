@@ -1,33 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 import SearchBar from "../components/SearchBar";
-import yelp from '../api/yelp'
+import useResults from "../hooks/useResults";
 
 const SearchScreen = () => {
-    const [errorMessage, setErrorMessage] = useState(``)
-    const [results, setResults] = useState([])
     const [term, setTerm] = useState(``)
-
-    const searchApi = async (searchTerm) => {
-        try {
-            const response = await yelp.get(`/search`, {
-                params: {
-                    limit: 50,
-                    location: `san jose`, // temp
-                    term: searchTerm,
-                }
-            })
-            setResults(response.data.businesses)
-        } catch (err) {
-            console.log(err)
-            setErrorMessage(`There was an error, please try again`)
-        }
-    }
-
-    // Call searchApi when component is first rendered
-    useEffect(() => {
-        searchApi(`pasta`)
-    }, [])
+    const [errorMessage, results, searchApi] = useResults()
 
     return (
         <View>
