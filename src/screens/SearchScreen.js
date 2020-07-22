@@ -12,7 +12,7 @@ const SearchScreen = () => {
     const filterResultsByPrice = (price) => results.filter(result => result.price === price)
 
     return (
-        <View>
+        <View style={styles.container}>
             <SearchBar
                 onTermChange={setTerm}
                 onTermSubmit={() => searchApi(term)}
@@ -42,6 +42,10 @@ const SearchScreen = () => {
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+})
 
 export default SearchScreen
