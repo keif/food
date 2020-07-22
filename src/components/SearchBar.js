@@ -1,6 +1,6 @@
-import {Feather} from '@expo/vector-icons'
-import React from 'react'
-import {StyleSheet, TextInput, View} from 'react-native'
+import {Feather} from "@expo/vector-icons"
+import React from "react"
+import {StyleSheet, TextInput, View} from "react-native"
 
 const SearchBar = ({onTermChange, onTermSubmit, term}) => {
     return (

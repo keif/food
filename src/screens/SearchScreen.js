@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
-import {ScrollView, StyleSheet, Text, View} from 'react-native'
-import ResultsList from '../components/ResultsList'
-import SearchBar from '../components/SearchBar'
-import useResults from '../hooks/useResults'
+import React, {useState} from "react"
+import {ScrollView, StyleSheet, Text} from "react-native"
+import ResultsList from "../components/ResultsList"
+import SearchBar from "../components/SearchBar"
+import useResults from "../hooks/useResults"
 
 const SearchScreen = () => {
     const [term, setTerm] = useState(``)
