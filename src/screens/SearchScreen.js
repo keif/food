@@ -12,7 +12,7 @@ const SearchScreen = () => {
     const filterResultsByPrice = (price) => results.filter(result => result.price === price)
 
     return (
-        <View style={styles.container}>
+        <>
             <SearchBar
                 onTermChange={setTerm}
                 onTermSubmit={() => searchApi(term)}
@@ -38,7 +38,7 @@ const SearchScreen = () => {
                     title={`Richie Rich Spender`}
                 />
             </ScrollView>
-        </View>
+        </>
     )
 }
 
