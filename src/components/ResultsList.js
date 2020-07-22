@@ -5,7 +5,7 @@ import ResultsDetail from './ResultsDetail'
 const ResultsList = ({results, title}) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title}>{title}, {results.length} results</Text>
             <FlatList
                 data={results}
                 horizontal

@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         flexDirection: `row`,
         height: 50,
+        marginBottom: 10,
         marginHorizontal: 15,
         marginTop: 10,
     },
