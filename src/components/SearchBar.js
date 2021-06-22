@@ -1,22 +1,27 @@
-import {Feather} from "@expo/vector-icons"
-import React from "react"
-import {StyleSheet, TextInput, View} from "react-native"
+import { Feather } from "@expo/vector-icons"
+import React, { useEffect } from "react"
+import { StyleSheet, TextInput, View } from "react-native"
 
-const SearchBar = ({onTermChange, onTermSubmit, term}) => {
+const SearchBar = ({ location, onTermChange, onTermSubmit, term }) => {
+
+    useEffect(() => {
+        onTermSubmit(term, location)
+    }, [ location ])
+
     return (
-        <View style={styles.view}>
+        <View style={ styles.view }>
             <Feather
                 name="search"
-                style={styles.icon}
+                style={ styles.icon }
             />
             <TextInput
-                autoCapitalize={`none`}
-                autoCorrect={false}
-                onChangeText={onTermChange}
-                onEndEditing={onTermSubmit}
-                placeholder={`Search`}
-                style={styles.input}
-                value={term}
+                autoCapitalize={ `none` }
+                autoCorrect={ false }
+                onChangeText={ term => onTermChange(term, location) }
+                onEndEditing={ () => onTermSubmit(term, location) }
+                placeholder={ `Tacos, pizza, sushi, burgers, etc.` }
+                style={ styles.input }
+                value={ term }
             />
         </View>
     )

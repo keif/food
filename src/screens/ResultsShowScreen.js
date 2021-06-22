@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from "react"
-import {FlatList, Image, StyleSheet, Text, View} from "react-native"
+import React, { useEffect, useState } from "react"
+import { FlatList, Image, StyleSheet, Text, View } from "react-native"
 import yelp from "../api/yelp"
 
-const ResultsShowScreen = ({navigation}) => {
-    const [result, setResult] = useState(null)
+const ResultsShowScreen = ({ navigation }) => {
+    const [ result, setResult ] = useState(null)
     const id = navigation.getParam(`id`)
 
     const getResult = async (id) => {
         try {
-            const response = await yelp.get(`/${id}`)
+            const response = await yelp.get(`/${ id }`)
             setResult(response.data)
         } catch (err) {
-            console.log(err)
+            console.warn(err)
         }
     }
 
@@ -25,18 +25,18 @@ const ResultsShowScreen = ({navigation}) => {
 
     return (
         <View>
-            <Text>{result.name}</Text>
+            <Text>{ result.name }</Text>
             <FlatList
-                data={result.photos}
-                keyExtractor={(photo) => photo}
-                renderItem={({item}) => {
+                data={ result.photos }
+                keyExtractor={ (photo) => photo }
+                renderItem={ ({ item }) => {
                     return (
                         <Image
-                            source={{uri: item}}
-                            style={styles.image}
+                            source={ { uri: item } }
+                            style={ styles.image }
                         />
                     )
-                }}
+                } }
             />
         </View>
     )
